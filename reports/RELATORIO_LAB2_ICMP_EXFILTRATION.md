@@ -237,6 +237,6 @@ registros dos endpoints.
 
 ------------------------------------------------------------------------
 
-**Classificação do achado:** Suspeito — requer validação adicional  
-**Principal origem investigativa:** `172.19.15.6`  
+**Classificação do achado:** Suspeito — requer validação adicional
+**Principal origem investigativa:** `172.19.15.6`
 **Destino prioritário para contextualização:** `192.168.15.8`
