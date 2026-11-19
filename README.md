@@ -1,60 +1,74 @@
-﻿# Network Anomaly Detection Lab — Worm na Rede
+﻿
+<p align="center">
+  <img src="assets/banner.png" alt="Network Anomaly Detection Lab — SMB Investigation" width="100%">
+</p>
 
-## Overview
+<h1 align="center">Network Anomaly Detection Lab</h1>
 
-Educational cybersecurity lab focused on network traffic analysis and
-anomaly detection using Python.
+<p align="center">
+  <strong>LAB 01 · SMB Scanning Investigation</strong><br>
+  Network Security · Traffic Analysis · Anomaly Detection
+</p>
 
-The project investigates suspicious TCP traffic targeting port 445
-(SMB), identifies anomalous source IP addresses, and analyzes SYN
-connection attempts to detect behavior consistent with automated scanning.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" alt="Python 3.11">
+  <img src="https://img.shields.io/badge/Scapy-Packet%20Analysis-00A6A6" alt="Scapy">
+  <img src="https://img.shields.io/badge/Scikit--learn-Isolation%20Forest-F7931E?logo=scikitlearn&logoColor=white" alt="Scikit-learn">
+  <img src="https://img.shields.io/badge/Project-Educational-64748b" alt="Educational project">
+</p>
 
-## Objectives
+---
 
-- Analyze TCP traffic and packets involving ports 443 and 445.
-- Extract traffic features by source IP address.
-- Apply Isolation Forest to identify anomalous hosts.
-- Investigate SYN attempts targeting TCP port 445.
-- Evaluate statistical deviations using Z-scores.
-- Document findings, limitations, and defensive recommendations.
+## Investigation Overview
 
-## Tools
+An educational cybersecurity investigation focused on suspicious network traffic targeting TCP port 445 (SMB).
 
-- Python
-- Scapy
-- Pandas
-- Scikit-learn
-- Jupyter Notebook
+The analysis combines packet inspection, per-source traffic features, statistical deviation analysis, and Isolation Forest anomaly detection to identify behavior consistent with automated SMB scanning.
 
-## Project files
+## Key Metrics
 
-- `Worm_445_Analise.ipynb` — analysis notebook, calculations, and results.
-- `RELATORIO_LAB1.md` — technical report and conclusions.
-- `requirements.txt` — Python dependencies.
+| Metric | Result |
+|:--|--:|
+| Packets analyzed | **206,536** |
+| Source IPs analyzed | **79** |
+| IPs flagged as anomalous | **8** |
+| SYN packets targeting TCP/445 | **1,912** |
 
-## Main finding
 
-The host `172.19.15.200` generated 1,912 observed SYN packets
-destined for TCP port 445, targeting 269 distinct destination IPs.
-Its traffic pattern was consistent with automated SMB scanning.
+## Primary Finding
 
-The findings indicate suspicious scanning behavior in the analyzed
-capture. They do not, by themselves, prove successful exploitation,
-malware infection, or the identity of the initial compromised host.
+**Suspected SMB scanning activity — `172.19.15.200`**
+
+The host generated **1,912 observed SYN packets** destined for TCP port 445, targeting **269 distinct destination IP addresses** in the analyzed capture.
+
+This behavior is consistent with automated SMB scanning. The available evidence does not establish successful exploitation, malware infection, or the identity of an initially compromised host.
+
+---
+
+## Visualizations
+
+### 1. SMB traffic by source IP
+
+Distribution of packets involving TCP port 445 by source IP address.
+
+![SMB traffic by source IP](assets/smb_traffic_by_source.png)
+
+### 2. Timeline of SMB connection attempts
+
+Timeline of SYN packets directed to TCP port 445, illustrating the observed connection-attempt pattern.
+
+![SMB SYN timeline](assets/smb_syn_timeline.png)
+
+### 3. Isolation Forest anomaly detection
+
+Visualization of the IP addresses evaluated by the anomaly detection model. Anomaly classifications are exploratory and should be interpreted alongside packet-level evidence.
+
+![Isolation Forest anomaly detection](assets/isolation_forest_anomalies.png)
+
+---
 
 ## Reproducing the analysis
 
-1. Install Python 3.11 or a compatible version.
-2. Create and activate a virtual environment.
-3. Install the dependencies listed in `requirements.txt`.
-4. Obtain the original lab capture from its source, subject to its
-   license and redistribution terms.
-5. Place the capture at the path expected by the notebook:
-   `data/worm/extraido/pacotes_worm.pcapng`.
-6. Open `Worm_445_Analise.ipynb` in Jupyter or VS Code and run the cells.
-
-The PCAP file is not included in this repository. The notebook's
-relative input path must be preserved when reproducing the analysis.
 
 ## Data source and credits
 
