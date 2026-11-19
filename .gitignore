@@ -6,3 +6,27 @@ data/
 *.pcap
 *.pcapng
 *.zip
+
+# Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Segredos e configurações locais
+.env
+.env.*
+!.env.example
+
+# Arquivos temporários e do sistema
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Configurações locais do assistente
+.claude/
+CLAUDE.md
